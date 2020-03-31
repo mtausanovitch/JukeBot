@@ -1,0 +1,55 @@
+1) create account on github[
+2) download a git environment from gitforwindows.com
+3) create a folder locally on your computer where you want to store the project files
+4) in that folder, right click.  You should have the option to select "git bash" if you installed git for windows properly
+5) in the terminal, type "git init" to initialize a local repository
+6) go to the github.com/mtausanovitch/JukeBot repository
+7) once you are at the repository dashboard, there will be a green button that says "clone or download"
+8)copy the URL from that option
+9) go back to your git bash terminal, a type "git init <URL>" where <URL> is replaced by the cloning URL you just copied
+10) in the terminal, type "git fetch --all"
+11) this should have set up a local git repository set to track the master branch stored online
+
+ONE TIME SETUP:
+You'll also need to tell git who you are.  It may also prompt you with these commands if you try to perform an action that requires credentials.
+use the command "git config --global user.name <user_name>" with <user_name> replaced by you github account user name
+after that, use the command "git config --global user.password <user_password>" to set your password.
+
+
+GIT COMMANDS:
+Here are the common commands you'll need to update and navigate the git repo
+
+git checkout <branch>
+-changes branches.  Branches are sort of like folders.  Currently I have set up master and inDEV.  Plan on using master for things we do not want to touch/edit.  inDEV is the current working directory.  Change to view the inDEV branch with "git checkout inDEV" 
+
+git pull
+-updates your local repo with the common repo.  You should always use this command before you do work in the repos to make sure you are up to date
+
+git add --all *or* git add <filename>
+-adds all current file changes or just <filename> changes to your commit buffer
+
+git commit -m '<comment>'
+-commits added files to the current branch.  Once you commit a file to git, you are telling it that the file is in its final state and is ready to be pushed to the public repo. Add a comment so we know what the commit is for.
+
+git push
+-Any commits you currently have are 'pushed' to the git repo.  Now anyone who does git pull will download the most recent changes you have pushed. 
+
+git help
+-displays a list of some common commands.  Useful if you forget something or want to learn more
+
+Thats pretty much it.  There are some other commands that we likely won't need unless something bad happens.  So normally, you would follow this flow of commands:
+
+git pull
+*do some work*
+git add --all
+git commit -m 'end of day 3/31'
+git push
+
+Once you have this all set up, youll also want to make sure you have node.js installed on your computer so you can run all the code (javascript).  Just google node js and youll find the download.
+
+To try out the authorization API yourself, go to the web-api-authorization directory and open a terminal there (you can just open a git bash in that folder).  Type "node app.js".  If you get an error message saying you need dependencies, try the command "npm install".  Once you run app.js, the terminal should tell you that it is listening on local port :8888.  The app has initialized a local server at localhost:8888. Press ctrl+c in the terminal to kill the server. If you type that adress in your web browser, you should be able to see the user login screen.  If you login with your spotify, the JukeBot app client will give you a token so you can use its services.  Currently it is just this login authentication screen.  In the future, this will give JukeBot permission to use your data and such, and it will be open the internet, not just a local area network.  
+
+There is a readme in the web-api-authorization folder if you want to refer to that for more info.
+
+
+
